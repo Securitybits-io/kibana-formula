@@ -1,0 +1,46 @@
+#Minimal pillar
+kibana:
+  repo: 7.x
+  version: 7.4.0
+
+#Full pillar
+kibana:
+  repo: 7.x
+  version: 7.4.0
+  hold: True
+  restart: True
+  enable: True
+  config:
+    server.port: 5601
+    server.host: "localhost"
+    server.basePath: ""
+    server.rewriteBasePath: false
+    server.maxPayloadBytes: 1048576
+    server.name: "your-hostname"
+    server.ssl.enabled: false
+    server.ssl.certificate: /path/to/your/server.crt
+    server.ssl.key: /path/to/your/server.key
+    kibana.index: ".kibana"
+    kibana.defaultAppId: "home"
+    elasticsearch.hosts: ["http://localhost:9200"]
+    elasticsearch.preserveHost: true
+    elasticsearch.username: "kibana"
+    elasticsearch.password: "password"
+    elasticsearch.ssl.certificate: /path/to/your/client.crt
+    elasticsearch.ssl.key: /path/to/your/client.key
+    elasticsearch.ssl.certificateAuthorities: [ "/path/to/your/CA.pem" ]
+    elasticsearch.ssl.verificationMode: full
+    elasticsearch.pingTimeout: 1500
+    elasticsearch.requestTimeout: 30000
+    elasticsearch.requestHeadersWhitelist: [ authorization ]
+    elasticsearch.customHeaders: {}
+    elasticsearch.shardTimeout: 30000
+    elasticsearch.startupTimeout: 5000
+    elasticsearch.logQueries: false
+    logging.dest: stdout
+    logging.silent: false
+    logging.quiet: false
+    logging.verbose: false
+    ops.interval: 5000
+    i18n.locale: "en"
+    pid.file: /var/run/kibana.pid
